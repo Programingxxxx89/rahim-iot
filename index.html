@@ -9,7 +9,7 @@
 
 		<!-- Header -->
 			<header id="header" ><nav class="left"><a href="#menu"><span>Menu</span></a>
-				</nav><a href="index.html" class="logo">Abd.Rahim  |  WEBSITE BEGINNER PROGRAMING </a>
+				</nav><a href="index.html" class="logo">Abd.Rahim  | BEGINNER PROGRAMING </a>
 				<nav class="right"><a href="#" class="button alt">Log in</a>
 				</nav></header>
 			<!-- Menu --><nav id="menu"><ul class="links"><li><a href="index.html">Home</a></li>
@@ -21,69 +21,108 @@
 				</ul><ul class="actions vertical"><li><a href="#" class="button fit btn-primary ">JOIN US</a></li>
 				</ul></nav><!-- Banner -->
 				
-				<section id="banner">
-    <!-- Video Background --><div class="video-background">
-  <iframe 
-    src="https://www.youtube.com/embed/fTvXQKFkdjs?autoplay=1&mute=1&loop=1&playlist=fTvXQKFkdjs&controls=0&showinfo=0&modestbranding=1"
-    frameborder="0"
-    allow="autoplay; fullscreen"
-    allowfullscreen
-    id="bg-video">
-  </iframe>
-</div>
-  
+			<section id="banner">
+  <!-- Video Background -->
+  <div class="video-background">
+    <iframe 
+      id="bg-video"
+      src="https://www.youtube.com/embed/fTvXQKFkdjs?autoplay=1&mute=1&loop=1&playlist=fTvXQKFkdjs&controls=0&showinfo=0&modestbranding=1"
+      frameborder="0"
+      allow="autoplay; encrypted-media; fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-    <!-- Overlay Gradasi Gelap -->
-    <div class="overlay"></div>
+  <!-- Overlay Gradasi Gelap -->
+  <div class="overlay"></div>
 
-    <!-- Konten Asli Kamu -->
-    <div class="content">
-        <h1><b style="color:tomato;">SELAMAT DATANG DI WEB INSTALASI WIMDOWS KAMI RPL PRODUCTION </b></h1>
-        <p><b><i style="color: white;">Disini kami memberikan berbagai macam pelayanan </br>baik di bidang jasa Pembuatan product ARDUINO ,INSTALASI WINDOWS ,IOT, WEB</i></b></p>
-<ul class="actions"><li><a href="#one" class="button scrolly ">GET STARTED</a></li>
-					</ul>
-    </div>
+  <!-- Konten Banner -->
+  <div class="content">
+    <h1><b style="color:tomato;">SELAMAT DATANG DI WEB INSTALASI WINDOWS KAMI RPL PRODUCTION</b></h1>
+    <p><b><i style="color:white;">Disini kami memberikan berbagai macam pelayanan <br>baik di bidang jasa Pembuatan Product ARDUINO, INSTALASI WINDOWS, IOT, dan WEB</i></b></p>
+    <ul class="actions">
+      <li><a href="#one" class="button scrolly">GET STARTED</a></li>
+    </ul>
+  </div>
+
+  <!-- Tombol Aktifkan Suara -->
+  <button 
+    id="unmuteBtn"
+    style="
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: bold;
+    ">
+    🔊 Aktifkan Suara
+  </button>
 </section>
 
 <script>
-  // Aktifkan suara otomatis setelah ada interaksi (klik pertama)
-  const video = document.getElementById("bg-video");
+  // 🔊 Tombol untuk mengaktifkan atau mematikan suara
+  document.getElementById("unmuteBtn").addEventListener("click", function() {
+    const iframe = document.getElementById("bg-video");
+    const src = iframe.src;
 
-  document.addEventListener("click", () => {
-    video.muted = false;
-    video.play();
-  }, { once: true });
+    if (src.includes("mute=1")) {
+      iframe.src = src.replace("mute=1", "mute=0");
+      this.innerText = "🔇 Matikan Suara";
+    } else {
+      iframe.src = src.replace("mute=0", "mute=1");
+      this.innerText = "🔊 Aktifkan Suara";
+    }
+  });
+
+  // Pastikan hanya satu video <video> HTML5 yang bermain
+  const videos = document.querySelectorAll("video");
+  videos.forEach(video => {
+    video.addEventListener("play", () => {
+      videos.forEach(v => {
+        if (v !== video) v.pause();
+      });
+    });
+  });
 </script>
-	<!-- One -->
-			<section id="one" class="wrapper"><div class="inner flex flex-3">
-					<div class="flex-item left">
-						<div>
-							<h3>PROFILE </h3>
-							<p><b>RPL SQUAD</b><br><b>
-								<i>SELALU ADA DI JURUSAN RPL | SMKN 2 TAKALAR</i>
-							</b></p>
-						</div>
-						<div>
-							<h3>PENGALAMAN</h3>
-							<p><b>PENGALAMAN KAMI SEDIKIT  KARNA KAMI , PEMULA TAPI KAMI PUNYA MENTOR YG DAPAT DI ANDALKAN .</b><br> <b><i>SELALU BISA MEMBERIKAN KAMI ILMU NYA  DENGAN IKHLAS </i></b></p>
-						</div>
-						
-					</div>
-					<div class="flex-item image fit round">
-						<img src="images/A.webp" alt="" width="330" height="330"></div>
-					<div class="flex-item right">
-						<div>
-							<h3>MENTOR</h3>
-							<p>	<b><i>WAHYUDI S.kom | Pak hilal <br>Salah Satu guru pembimbing kami Yg ahli di berbagai Macam Bidang Termasuk Teknologi IT Yg expert..</b></i></p>
-						</div>
-						<div>
-							<h3>BIAYA JASA INSTALASI </h3>
-							<p><b><i>BAGI ANDA PENGGUNA BARU ANDA DI BERI SEBUAH DISKON YAKNI  <br>POTONGA HARGA 20%</i></b></p>
-						</div>
-					</div>
-				</div>
-			</section></div>
-		<div class="container my-5">
+
+<!-- Section One -->
+<section id="one" class="wrapper">
+  <div class="inner flex flex-3">
+    <div class="flex-item left">
+      <div>
+        <h3>PROFILE</h3>
+        <p><b>RPL SQUAD</b><br><b><i>SELALU ADA DI JURUSAN RPL | SMKN 2 TAKALAR</i></b></p>
+      </div>
+      <div>
+        <h3>PENGALAMAN</h3>
+        <p><b>PENGALAMAN KAMI MASIH SEDIKIT KARENA KAMI PEMULA, TAPI KAMI PUNYA MENTOR YANG DAPAT DIANDALKAN.</b><br><b><i>SELALU MEMBERIKAN ILMU DENGAN IKHLAS</i></b></p>
+      </div>
+    </div>
+
+    <div class="flex-item image fit round">
+      <img src="images/A.webp" alt="" width="330" height="330">
+    </div>
+
+    <div class="flex-item right">
+      <div>
+        <h3>MENTOR</h3>
+        <p><b><i>WAHYUDI S.Kom | Pak Hilal<br>Salah satu guru pembimbing kami yang ahli di berbagai bidang Teknologi IT.</i></b></p>
+      </div>
+      <div>
+        <h3>BIAYA JASA INSTALASI</h3>
+        <p><b><i>BAGI PENGGUNA BARU, DAPATKAN DISKON 20%!</i></b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Tambahan -->
+<div class="container my-5">
   <h2 class="text-center mb-4 fw-bold text-primary">
     VIDEO DRAMA MENGERJAKAN TUGAS INSTALL WINDOWS 10
   </h2>
@@ -98,16 +137,8 @@
   </div>
 
   <p class="text-center mt-3 text-muted fst-italic">
-    Tonton Video Kami sebrlum Proses Penginstalan...
-  
+    Tonton Video Kami sebelum Proses Penginstalan...
   </p>
-</div>
-
-  
-</div>
-
-
- 
 </div>
   <script>
   // Pastikan hanya satu video yang bermain dalam satu waktu
@@ -246,3 +277,4 @@
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script><script src="assets/js/jquery.scrolly.min.js"></script><script src="assets/js/skel.min.js"></script><script src="assets/js/util.js"></script><script src="assets/js/main.js"></script></body></html>
+

@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>webiotworks</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header">
+    <nav class="left">
+      <a href="#menu"><span>Menu</span></a>
+    </nav>
+    <a href="index.html" class="logo">Abd.Rahim | WEBSITE BEGINNER PROGRAMING</a>
+    <nav class="right">
+      <a href="#" class="button alt">Log in</a>
+    </nav>
+  </header>
+
+  <!-- Menu -->
+  <nav id="menu">
+    <ul class="links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="profile.html">Generic</a></li>
+      <li><a href="elements.html">Elements</a></li>
+      <li><a href="produk.html">Produk</a></li>
+      <li><a href="profile.html">Layanan</a></li>
+      <li><a href="bantuan.html">Bantuan</a></li>
+    </ul>
+    <ul class="actions vertical">
+      <li><a href="#" class="button fit btn-primary">JOIN US</a></li>
+    </ul>
+  </nav>
+
+  <!-- Banner -->
+  <section id="banner" style="position: relative; overflow: hidden; height: 100vh;">
+
+    <!-- Video Background -->
+    <div class="video-background">
+      <iframe
+        id="bg-video"
+        src="https://www.youtube.com/embed/fTvXQKFkdjs?autoplay=1&mute=1&loop=1&playlist=fTvXQKFkdjs&controls=0&showinfo=0&modestbranding=1"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Overlay -->
+    <div class="banner-overlay position-absolute top-0 start-0 w-100 h-100"
+      style="background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)); z-index: 1;">
+    </div>
+
+    <!-- Konten Banner -->
+    <div class="banner-content position-relative text-center text-white d-flex flex-column justify-content-center align-items-center h-100 px-3"
+      style="z-index: 2;">
+      <div class="container">
+        <h1 class="fw-bold text-uppercase mb-3" style="color: tomato;">
+          SELAMAT DATANG DI WEB INSTALASI WINDOWS KAMI RPL PRODUCTION
+        </h1>
+        <p class="fs-5"><b><i>
+          Disini kami memberikan berbagai macam pelayanan <br>
+          baik di bidang jasa Pembuatan Product ARDUINO, INSTALASI WINDOWS, IOT, dan WEB
+        </i></b></p>
+        <a href="#one" class="btn fw-bold mt-4 px-4 py-2 d-inline-block"
+          style="background-color: tomato; color: white; border-radius: 50px; font-size: 1rem;">
+          GET STARTED
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Tambahan -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4 fw-bold text-primary">
+      VIDEO DRAMA MENGERJAKAN TUGAS INSTALL WINDOWS 10
+    </h2>
+
+    <div class="d-flex justify-content-center">
+      <div class="video-portrait">
+        <video controls class="video-frame">
+          <source src="images/banner.mp4" type="video/mp4">
+          Browser Anda tidak mendukung tag video.
+        </video>
+      </div>
+    </div>
+
+    <p class="text-center mt-3 text-muted fst-italic">
+      Tonton Video Kami sebelum Proses Penginstalan...
+    </p>
+  </div>
+
+  <script>
+    // Pastikan hanya satu video yang bermain dalam satu waktu
+    const videos = document.querySelectorAll("video");
+    videos.forEach(video => {
+      video.addEventListener("play", () => {
+        videos.forEach(v => {
+          if (v !== video) v.pause();
+        });
+      });
+    });
+  </script>
+
+  <!-- Two (Motivasi) -->
+  <section id="two" class="wrapper style1 special text-bg-success">
+    <div class="inner text-bg-success text-center">
+      <h2>KATA KATA MOTIVASI</h2>
+      <figure>
+        <blockquote>
+          "Jagalah senantiasa persepsimu, karena ia bukan hal yang sepele tetapi merupakan kehormatan, kepercayaan, ketekunan, kedamaian,
+          <br> kebebasan dari kesakitan dan ketakutan — dengan kata lain, kemerdekaanmu."
+        </blockquote>
+        <footer class="text-bg-success">
+          <cite class="authors"></cite>
+          <cite class="company">Filsuf, Yunani Kuno</cite>
+        </footer>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Jasa Kami -->
+  <div class="container py-5">
+    <div class="text-center mb-4">
+      <div class="contact">
+        <h2><span>JASA KAMI </span> ANAK RPL</h2>
+        <p>
+          Apabila teman-teman sekalian menghadapi berbagai macam kendala baik dalam
+          pembuatan Web atau bahkan project IoT dan Arduino, kami siap membantu.
+          Selain itu, kami juga menyediakan beberapa template desain UI/UX untuk
+          membantu Anda membuat web dengan tampilan menarik.
+        </p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center g-4">
+      <!-- Card 1 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card h-100 shadow-lg border-0">
+          <img src="images/gambar1.jpeg" class="card-img-top" alt="Project Arduino / IoT">
+          <div class="card-body">
+            <h5 class="card-title">BUAT PROJECT ARDUINO / IOT</h5>
+            <p class="card-text">
+              Kami menyediakan jasa pembuatan project Arduino / IoT untuk membantu
+              Anda mempermudah pekerjaan yang mungkin terasa sulit.
+            </p>
+            <a href="#" class="btn btn-primary w-100">Mulai Ikuti</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card h-100 shadow-lg border-0">
+          <img src="images/gambar2.jpeg" class="card-img-top" alt="Control Bluetooth">
+          <div class="card-body">
+            <h5 class="card-title">CONTROL DENGAN BLUETOOTH ATAU JARINGAN</h5>
+            <p class="card-text">
+              Kami menyediakan solusi kontrol jarak jauh seperti menyalakan atau
+              mematikan perangkat rumah melalui jaringan atau Bluetooth, lengkap
+              dengan prototype-nya.
+            </p>
+            <a href="#" class="btn btn-primary w-100">Mulai Ikuti</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card h-100 shadow-lg border-0">
+          <img src="images/1.PNG" class="card-img-top" alt="Desain Web">
+          <div class="card-body">
+            <h5 class="card-title">DESAIN WEB</h5>
+            <p class="card-text">
+              Kami memberikan jasa pembuatan web yang responsif di berbagai ukuran
+              layar, baik Front-End maupun Back-End. Dan kali ini kami ada diskon besar-besaran 50%.
+            </p>
+            <a href="#" class="btn btn-primary w-100">Mulai Ikuti</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quote -->
+  <div class="content1 container align-center p-2 text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p><b><i>Hidup Itu Tenang Tapi Tak Tenang Ketika Lagi Enak Ngoding Jaringan Putus.</i></b></p>
+  </div>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2><span>Kontak</span> Kami</h2>
+    <p>Untuk info lebih lanjut hubungi kami</p>
+
+    <div class="row">
+      <img src="images/contact.webp" class="map" alt="map">
+      <form action="">
+        <div class="input-group">
+          <i data-feather="user"></i>
+          <input type="text" placeholder="nama">
+        </div>
+        <div class="input-group">
+          <i data-feather="mail"></i>
+          <input type="text" placeholder="email">
+        </div>
+        <div class="input-group">
+          <i data-feather="phone"></i>
+          <input type="text" placeholder="no hp">
+        </div>
+        <button type="submit" class="btn">kirim pesan</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="inner">
+      <h2>BY : RAHIM</h2>
+      <ul class="actions">
+        <li><span class="icon fa-phone"></span> <a href="#">082192349048</a></li>
+        <li><span class="icon fa-envelope"></span> <a href="#">abdrahim041107@gmail.com</a></li>
+        <li><span class="icon fa-map-marker"></span> Takalar, dpn pertamina kec. pattalassang</li>
+      </ul>
+    </div>
+  </footer>
+
+  <div class="copyright">
+    pembimbing: <a href="https://templated.co/">Wahyudi.skom</a>.
+  </div>
+
+  <!-- Script -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/skel.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -21,106 +21,44 @@
 				</ul><ul class="actions vertical"><li><a href="#" class="button fit btn-primary ">JOIN US</a></li>
 				</ul></nav><!-- Banner -->
 				
-			<section id="banner">
+			<section id="banner" style="position: relative; overflow: hidden; height: 100vh;">
   <!-- Video Background -->
-  <div class="video-background">
+  <div class="video-background" style="width: 100%; height: 100%;">
     <iframe 
       id="bg-video"
-      src="https://www.youtube.com/embed/fTvXQKFkdjs?autoplay=1&mute=1&loop=1&playlist=fTvXQKFkdjs&controls=0&showinfo=0&modestbranding=1"
+      src="https://www.youtube.com/embed/fTvXQKFkdjs?autoplay=0&mute=0&loop=1&playlist=fTvXQKFkdjs&controls=1&modestbranding=1&showinfo=0"
       frameborder="0"
       allow="autoplay; encrypted-media; fullscreen"
-      allowfullscreen>
+      allowfullscreen
+      style="width: 100%; height: 100%; object-fit: cover;">
     </iframe>
   </div>
 
-  <!-- Overlay Gradasi Gelap -->
-  <div class="overlay"></div>
+  <!-- Overlay Gradasi -->
+  <div class="overlay" style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: none;">
+  </div>
 
   <!-- Konten Banner -->
-  <div class="content">
+  <div class="content" style="
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;">
     <h1><b style="color:tomato;">SELAMAT DATANG DI WEB INSTALASI WINDOWS KAMI RPL PRODUCTION</b></h1>
     <p><b><i style="color:white;">Disini kami memberikan berbagai macam pelayanan <br>baik di bidang jasa Pembuatan Product ARDUINO, INSTALASI WINDOWS, IOT, dan WEB</i></b></p>
     <ul class="actions">
-      <li><a href="#one" class="button scrolly">GET STARTED</a></li>
+      <li><a href="#one" class="button scrolly" style="background:tomato; color:white; padding:10px 20px; border-radius:5px;">GET STARTED</a></li>
     </ul>
   </div>
-
-  <!-- Tombol Aktifkan Suara -->
-  <button 
-    id="unmuteBtn"
-    style="
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      background-color: rgba(0,0,0,0.6);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 15px;
-      cursor: pointer;
-      font-weight: bold;
-    ">
-    🔊 Aktifkan Suara
-  </button>
 </section>
-
-<script>
-  // 🔊 Tombol untuk mengaktifkan atau mematikan suara
-  document.getElementById("unmuteBtn").addEventListener("click", function() {
-    const iframe = document.getElementById("bg-video");
-    const src = iframe.src;
-
-    if (src.includes("mute=1")) {
-      iframe.src = src.replace("mute=1", "mute=0");
-      this.innerText = "🔇 Matikan Suara";
-    } else {
-      iframe.src = src.replace("mute=0", "mute=1");
-      this.innerText = "🔊 Aktifkan Suara";
-    }
-  });
-
-  // Pastikan hanya satu video <video> HTML5 yang bermain
-  const videos = document.querySelectorAll("video");
-  videos.forEach(video => {
-    video.addEventListener("play", () => {
-      videos.forEach(v => {
-        if (v !== video) v.pause();
-      });
-    });
-  });
-</script>
-
-<!-- Section One -->
-<section id="one" class="wrapper">
-  <div class="inner flex flex-3">
-    <div class="flex-item left">
-      <div>
-        <h3>PROFILE</h3>
-        <p><b>RPL SQUAD</b><br><b><i>SELALU ADA DI JURUSAN RPL | SMKN 2 TAKALAR</i></b></p>
-      </div>
-      <div>
-        <h3>PENGALAMAN</h3>
-        <p><b>PENGALAMAN KAMI MASIH SEDIKIT KARENA KAMI PEMULA, TAPI KAMI PUNYA MENTOR YANG DAPAT DIANDALKAN.</b><br><b><i>SELALU MEMBERIKAN ILMU DENGAN IKHLAS</i></b></p>
-      </div>
-    </div>
-
-    <div class="flex-item image fit round">
-      <img src="images/A.webp" alt="" width="330" height="330">
-    </div>
-
-    <div class="flex-item right">
-      <div>
-        <h3>MENTOR</h3>
-        <p><b><i>WAHYUDI S.Kom | Pak Hilal<br>Salah satu guru pembimbing kami yang ahli di berbagai bidang Teknologi IT.</i></b></p>
-      </div>
-      <div>
-        <h3>BIAYA JASA INSTALASI</h3>
-        <p><b><i>BAGI PENGGUNA BARU, DAPATKAN DISKON 20%!</i></b></p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Video Tambahan -->
 <div class="container my-5">
   <h2 class="text-center mb-4 fw-bold text-primary">
@@ -277,4 +215,5 @@
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script><script src="assets/js/jquery.scrolly.min.js"></script><script src="assets/js/skel.min.js"></script><script src="assets/js/util.js"></script><script src="assets/js/main.js"></script></body></html>
+
 

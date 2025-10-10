@@ -84,6 +84,35 @@
   padding: 10px 20px;
   border-radius: 10px;
 }
+	
+.video-background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Atur agar video memenuhi layar (tanpa garis hitam di kiri-kanan) */
+.video-background iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120vw;
+  height: 120vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* biar gak ganggu klik di atasnya */
+}
+
+.video-controls {
+  z-index: 5;
+}
+
+.video-controls button {
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
 </style>
 
 <script>

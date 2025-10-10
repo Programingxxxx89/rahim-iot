@@ -2938,110 +2938,71 @@
 /* Banner */
 
 	#banner {
+  po/* === Perbaikan layout banner responsif === */
+#banner {
   position: relative;
+  overflow: hidden;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
+  background: #000;
+  color: #fff;
 }
 
-/* Video Latar Belakang */
-#bg-video {
+/* Pastikan video terlihat penuh */
+#banner .video-background iframe {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  align-items: center;
-}
-
-
-.video-portrait {
-  position: relative;
-  width: 100%;
-  max-width: 360px; /* ukuran maksimal video */
-  aspect-ratio: 16 / 9; /* pastikan tampil vertikal */
-  overflow: hidden;
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.2);
-  background: #000; /* latar belakang hitam untuk kesan sinematik */
-}
-
-.video-portrait .video-frame {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* tampilkan seluruh video tanpa crop */
-  border-radius: 20px;
-}
-
-
-/* Gradasi Gelap di atas Video */
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%) scale(1.2);
   z-index: 1;
-  opacity: 0.5;
+  pointer-events: none;
 }
 
-/* Konten di atas Video */
-#banner .content {
+/* Teks dan tombol */
+#banner .text-center {
   position: relative;
-  z-index: 2;
-  color: white;
-  padding: 0 20px;
-}
-
-.btn{
-  background-color: tomato;
-}
-
-/* Tombol */
-.button {
+  z-index: 3;
+  padding: 20px;
+  text-align: center;
+  background: rgba(0,0,0,0.3);
+  border-radius: 12px;
   display: inline-block;
-  padding: 10px;
-  background-color: tomato;
-  color: white;
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: bold;
-  transition: background 0.3s;
 }
 
-.button:hover {
-  background-color: #ff7043;
+/* Tombol video diatur di bawah teks agar tidak menimpa */
+#banner .video-controls {
+  position: relative;
+  z-index: 4;
+  margin-top: 20px;
 }
-		#banner .content {
-			-moz-transition: opacity 1s ease-in-out, -moz-transform 0.75s ease-in-out;
-			-webkit-transition: opacity 1s ease-in-out, -webkit-transform 0.75s ease-in-out;
-			-ms-transition: opacity 1s ease-in-out, -ms-transform 0.75s ease-in-out;
-			transition: opacity 1s ease-in-out, transform 0.75s ease-in-out;
-			opacity: 1;
-		}
 
-		#banner h1 {
-			font-size: 4em;
-			color: black;
-			text-shadow: 12, 0 , 34,  12 , black;
-			line-height: 1em;
-			margin: 0 0 0.5em 0;
-			padding: 0;
-		}
+/* Tombol lebih kecil di HP */
+#banner .video-controls button {
+  font-size: 14px;
+  padding: 8px 16px;
+}
 
-		#banner p {
-			font-size: 1.25em;
-			margin-bottom: 1.75em;
-			color:white;
+/* === Responsif (HP) === */
+@media (max-width: 768px) {
+  #banner h1 {
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+
+  #banner p {
+    font-size: 0.9rem;
+  }
+
+  #banner .btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  #banner .text-center {
+    background: rgba(0,0,0,0.4);
+    width: 90%;
+  }
 }
 
 

@@ -46,23 +46,89 @@
 
 				<section id="banner">
 
-    <!-- Video Background --><div class="video-background">
-
+    <!-- Video Background --><!-- ✅ Video YouTube Background Bisa Play/Pause & Suara -->
+<div class="video-background position-relative">
   <iframe 
-
-    src="https://www.youtube.com/embed/fTvXQKFkdjs?autoplay=1&mute=1&loop=1&playlist=fTvXQKFkdjs&controls=0&showinfo=0&modestbranding=1"
-
+    id="bg-video"
+    src="https://www.youtube.com/embed/fTvXQKFkdjs?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=fTvXQKFkdjs&controls=0&modestbranding=1&showinfo=0"
     frameborder="0"
-
     allow="autoplay; fullscreen"
-
-    allowfullscreen
-
-    id="bg-video">
-
+    allowfullscreen>
   </iframe>
 
+  <!-- Tombol Kontrol -->
+  <div class="video-controls position-absolute top-50 start-50 translate-middle text-center">
+    <button id="playPauseBtn" class="btn btn-primary m-2">⏯️ Play/Pause</button>
+    <button id="muteBtn" class="btn btn-success m-2">🔊 Suara</button>
+  </div>
 </div>
+
+<style>
+.video-background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-controls button {
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+</style>
+
+<script>
+// === YouTube API Load ===
+let tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+let firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+let player;
+
+// === Inisialisasi Player ===
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('bg-video', {
+    events: {
+      'onReady': onPlayerReady
+    }
+  });
+}
+
+// === Fungsi Saat Siap ===
+function onPlayerReady() {
+  const playPauseBtn = document.getElementById('playPauseBtn');
+  const muteBtn = document.getElementById('muteBtn');
+
+  playPauseBtn.addEventListener('click', function() {
+    const state = player.getPlayerState();
+    if (state === YT.PlayerState.PLAYING) {
+      player.pauseVideo();
+    } else {
+      player.playVideo();
+    }
+  });
+
+  muteBtn.addEventListener('click', function() {
+    if (player.isMuted()) {
+      player.unMute();
+      muteBtn.textContent = "🔇 Mute";
+    } else {
+      player.mute();
+      muteBtn.textContent = "🔊 Suara";
+    }
+  });
+}
+</script>
 
   
 

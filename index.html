@@ -47,76 +47,75 @@
 				<section id="banner">
 
     <!-- Video Background --><!-- ✅ Video YouTube Background Bisa Play/Pause & Suara -->
-<div class="video-background position-relative">
-  <iframe 
-    id="bg-video"
-    src="https://www.youtube.com/embed/fTvXQKFkdjs?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=fTvXQKFkdjs&controls=0&modestbranding=1&showinfo=0"
-    frameborder="0"
-    allow="autoplay; fullscreen"
-    allowfullscreen>
-  </iframe>
+<section id="banner" style="position: relative; overflow: hidden; height: 100vh;">
+  <div class="video-background position-relative">
+    <iframe 
+      id="bg-video"
+      src="https://www.youtube.com/embed/fTvXQKFkdjs?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=fTvXQKFkdjs&controls=0&modestbranding=1&showinfo=0"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
 
-  <!-- Tombol Kontrol -->
-  <div class="video-controls position-absolute top-50 start-50 translate-middle text-center">
-    <button id="playPauseBtn" class="btn btn-primary m-2">⏯️ Play/Pause</button>
-    <button id="muteBtn" class="btn btn-success m-2">🔊 Suara</button>
+    <!-- Tombol Kontrol Video -->
+    <div class="video-controls position-absolute top-50 start-50 translate-middle text-center">
+      <button id="playPauseBtn" class="btn btn-primary m-2">⏯️ Play / Pause</button>
+      <button id="muteBtn" class="btn btn-success m-2">🔊 Suara</button>
+    </div>
   </div>
-</div>
 
+  <!-- Teks Banner -->
+  <div class="text-center position-absolute top-50 start-50 translate-middle text-light">
+    <h1 class="fw-bold mb-3 text-warning">SELAMAT DATANG DI WEB INSTALASI WINDOWS KAMI</h1>
+    <p class="lead">Kami melayani pembuatan produk ARDUINO, INSTALASI WINDOWS, IOT, dan WEB</p>
+    <a href="#profile" class="btn btn-danger mt-3 px-4 py-2 fw-bold">GET STARTED</a>
+  </div>
+</section>
+
+<!-- === Gaya (CSS) === -->
 <style>
 .video-background {
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  background-color: black;
 }
 
-.video-background iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.video-controls button {
-  font-size: 18px;
-  padding: 10px 20px;
-  border-radius: 10px;
-}
-	
-.video-background {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* Atur agar video memenuhi layar (tanpa garis hitam di kiri-kanan) */
+/* Biar video benar-benar penuh layar */
 .video-background iframe {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 120vw;
-  height: 120vh;
-  transform: translate(-50%, -50%);
-  pointer-events: none; /* biar gak ganggu klik di atasnya */
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%) scale(1.3);
+  pointer-events: none;
+  border: none;
 }
 
+/* Tombol di tengah */
 .video-controls {
-  z-index: 5;
+  z-index: 10;
 }
 
 .video-controls button {
   font-size: 18px;
   padding: 10px 20px;
   border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+/* Teks banner di atas video */
+#banner .text-center {
+  z-index: 15;
+  width: 90%;
+}
 </style>
 
+<!-- === Fungsi YouTube === -->
 <script>
-// === YouTube API Load ===
 let tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 let firstScriptTag = document.getElementsByTagName('script')[0];
@@ -124,20 +123,17 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 let player;
 
-// === Inisialisasi Player ===
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('bg-video', {
-    events: {
-      'onReady': onPlayerReady
-    }
+    events: { 'onReady': onPlayerReady }
   });
 }
 
-// === Fungsi Saat Siap ===
 function onPlayerReady() {
   const playPauseBtn = document.getElementById('playPauseBtn');
   const muteBtn = document.getElementById('muteBtn');
 
+  // Tombol Play / Pause
   playPauseBtn.addEventListener('click', function() {
     const state = player.getPlayerState();
     if (state === YT.PlayerState.PLAYING) {
@@ -147,6 +143,7 @@ function onPlayerReady() {
     }
   });
 
+  // Tombol Suara
   muteBtn.addEventListener('click', function() {
     if (player.isMuted()) {
       player.unMute();
@@ -158,36 +155,6 @@ function onPlayerReady() {
   });
 }
 </script>
-
-  
-
-
-
-    <!-- Overlay Gradasi Gelap -->
-
-    <div class="overlay"></div>
-
-
-
-    <!-- Konten Asli Kamu -->
-
-    <div class="content">
-
-        <h1><b style="color:tomato;">SELAMAT DATANG DI WEB INSTALASI WIMDOWS KAMI RPL PRODUCTION </b></h1>
-
-        <p><b><i style="color: white;">Disini kami memberikan berbagai macam pelayanan </br>baik di bidang jasa Pembuatan product ARDUINO ,INSTALASI WINDOWS ,IOT, WEB</i></b></p>
-
-<ul class="actions"><li><a href="#one" class="btn fw-bold mt-4 px-4 py-2 d-inline-block"
-   style="background-color: tomato; color: white; border-radius: 50px; font-size: 1rem;">
-  GET STARTED
-</a></li>
-
-					</ul>
-
-    </div>
-
-</section>
-
 <!-- Musik Latar (disembunyikan) -->
 <audio id="bg-music" loop preload="auto" hidden>
   <source src="audio/yungkai.mp3" type="audio/mpeg">

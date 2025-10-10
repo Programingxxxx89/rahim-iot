@@ -93,7 +93,66 @@
 
 </section>
 
+<!-- Musik Latar (disembunyikan) -->
+<audio id="bg-music" loop preload="auto" hidden>
+  <source src="audio/yungkai.mp3" type="audio/mpeg">
+  Browser kamu tidak mendukung audio.
+</audio>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const bgMusic = document.getElementById("bg-music");
+  const startBtn = document.querySelector(".button.scrolly");
+
+  // Saat tombol GET STARTED diklik → putar musik
+  startBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Putar musik
+    bgMusic.play().catch(() => {
+      alert("Silakan izinkan audio agar musik bisa diputar.");
+    });
+
+    // Scroll halus ke section berikutnya
+    const target = document.querySelector(startBtn.getAttribute("href"));
+    target.scrollIntoView({ behavior: "smooth" });
+  });
+
+  // === HENTIKAN MUSIK JIKA VIDEO DIPUTAR ===
+  // Untuk <video> biasa
+  const allVideos = document.querySelectorAll("video");
+  allVideos.forEach(video => {
+    video.addEventListener("play", () => {
+      bgMusic.pause();
+    });
+    video.addEventListener("pause", () => {
+      bgMusic.play().catch(()=>{});
+    });
+  });
+
+  // Untuk YouTube iframe (pakai postMessage API)
+  const ytIframes = document.querySelectorAll("iframe[src*='youtube.com']");
+  ytIframes.forEach(iframe => {
+    // Pastikan iframe punya API
+    if (!iframe.src.includes("enablejsapi=1")) {
+      iframe.src += (iframe.src.includes("?") ? "&" : "?") + "enablejsapi=1";
+    }
+
+    // Pantau pesan dari YouTube
+    window.addEventListener("message", (event) => {
+      if (event.data && typeof event.data === "string") {
+        if (event.data.includes('"event":"onStateChange","info":1')) {
+          // 1 = video sedang diputar
+          bgMusic.pause();
+        } else if (event.data.includes('"event":"onStateChange","info":2')) {
+          // 2 = video dijeda
+          bgMusic.play().catch(()=>{});
+        }
+      }
+    });
+  });
+});
+						  </script>
 
 <script>
 
